@@ -1,7 +1,7 @@
 services:
   - type: web
     name: wallacepos
-    env: node
-    buildCommand: ./render-build.sh
-    startCommand: php artisan serve --host 0.0.0.0 --port 10000
-    nodeVersion: 16  # Specify a supported Node.js version
+    env: docker
+    buildCommand: "docker build -t wallacepos ."
+    startCommand: "docker run -p 10000:10000 wallacepos"
+    plan: free
